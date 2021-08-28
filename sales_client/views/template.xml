@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="material_client_show" name="materials">
+        <t t-call='website.layout'>
+            <div class="oe_structure">
+                <div class="container">
+                    <br/>
+                    <center>
+                        Material Client Info
+                    </center>
+                    <br/>
+                    <table class='table-striped table'>
+                        <thead style='font-size: 23px;'>
+                            <tr>
+                                <h6>
+                                    <b>
+                                        <th>Name of Materials</th>
+                                        <th>Type Of Materials</th>
+                                        <th>Supliers</th>
+                                        <th>Material Code</th>
+                                        <th>Material Buy Price</th>
+                                    </b>
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach='materials' t-as='mats'>
+                                <tr>
+                                    <td>
+                                        <span t-esc='mats.name'/>
+                                    </td>
+                                    <td>
+                                        <span t-esc='mats.type'/>
+                                    </td>
+                                    <td>
+                                        <span t-esc='mats.suppliers'/>
+                                    </td>
+                                    <td>
+                                        <span t-esc='mats.code'/>
+                                    </td>
+                                    <td>
+                                        <span t-esc='mats.buy_price'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

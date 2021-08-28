@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="materials_form" model="ir.ui.view">
+        <field name="name">materials.data.form</field>
+        <field name="model">materials.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name='name'/>
+                            <field name="code"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name='buy_price'/>
+                            <field name="suppliers"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="materials_tree" model="ir.ui.view">
+        <field name="name">materials.data.tree</field>
+        <field name="model">materials.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <field name='buy_price'/>
+                <field name="suppliers"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="materials_action" model="ir.actions.act_window">
+        <field name="name">Materials Inventory</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">materials.data</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add data materials
+            </p>
+        </field>
+    </record>
+    <menuitem id="materials_root"
+              name="Materials"
+              sequence="10"/>
+
+    <menuitem id="materials_data_root"
+              name="Materials Data"
+              parent="materials_root"
+              sequence="10"/>
+    <menuitem id="materials_data"
+              name="Materials Data Shows"
+              parent="materials_data_root"
+              action="materials_action"
+              sequence="10"/>
+
+
+</odoo>
